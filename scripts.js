@@ -1,3 +1,4 @@
+//arr to hold added books
 const myLibrary=[];
 
 
@@ -20,13 +21,21 @@ function addBookToLib(){
     let newPages = prompt("how many pages?");
     let newRead = prompt("have you read it?");
 
-    let book = new Book(newName, newAuthor, newPages, newRead);
+
+
 
     
+    
 
-    myLibrary.push(book)
+    myLibrary.push(new Book(newName, newAuthor, newPages, newRead));
+    console.log(myLibrary);
+
 };
 
 
 
 
+
+
+const bookButton = document.getElementById("newBookBtn");
+bookButton.addEventListener("click", addBookToLib);
