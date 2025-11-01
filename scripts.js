@@ -14,10 +14,19 @@ function Book(name, author, pages, hasRead){
 
 };
 
-function addBookToLib (){
+function addBookToLib(){
+    let newName = prompt("whats the book name?");
+    let newAuthor = prompt("who's the author?");
+    let newPages = prompt("how many pages?");
+    let newRead = prompt("have you read it?");
 
+    let book = new Book(newName, newAuthor, newPages, newRead);
+
+    
+
+    myLibrary.push(book)
 };
 
-let book1 = new Book("book of sus", "sus", 69, true);
 
-console.table(book1)
+
+
