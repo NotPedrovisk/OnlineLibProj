@@ -1,6 +1,9 @@
 //arr to hold added books
 const myLibrary=[];
 
+//arr used to check which books are already displayed
+const drawnLibrary=[];
+
 
 //book constructor
 function Book(name, author, pages, hasRead){
@@ -50,32 +53,39 @@ const bookContainer = document.getElementById("bookContainer");
 function displayBooks(){
     //loops throught every book in myLib to display their info
     for(book of myLibrary){
-        //card div for each book
-        const bookCard = document.createElement("div");
-        bookCard.classList.add("bookCard");
+        //checks if book is already drawn by looking at drawnLib
+        if (!drawnLibrary.includes(book)){
+            
+            //card div for each book
+            const bookCard = document.createElement("div");
+            bookCard.classList.add("bookCard");
+            
+            //contents of each bookCard
+            const nameTxt = document.createElement("p");
+            nameTxt.textContent = "Book Name: " + book.name;
+
+            const authorTxt = document.createElement("p");
+            authorTxt.textContent = "Author's Name: " + book.author;
+
+            const pagesTxt = document.createElement("p");
+            pagesTxt.textContent = "Number of Pages: " + book.pages;
+
+            const readTxt = document.createElement("p");
+            readTxt.textContent = "Have you read it: " + book.hasRead;
+
+            
+            bookCard.appendChild(nameTxt);
+            bookCard.appendChild(authorTxt);
+            bookCard.appendChild(pagesTxt);
+            bookCard.appendChild(readTxt);
+
+
+            //adds bookCard to container
+            bookContainer.appendChild(bookCard);
+            }
+            //adds new book to drawnLib so its not repeated
+            drawnLibrary.push(book);
         
-        //contents of each bookCard
-        const nameTxt = document.createElement("p");
-        nameTxt.textContent = "Book Name: " + book.name;
-
-        const authorTxt = document.createElement("p");
-        authorTxt.textContent = "Author's Name: " + book.author;
-
-        const pagesTxt = document.createElement("p");
-        pagesTxt.textContent = "Number of Pages: " + book.pages;
-
-        const readTxt = document.createElement("p");
-        readTxt.textContent = "Have you read it: " + book.hasRead;
-
-        
-        bookCard.appendChild(nameTxt);
-        bookCard.appendChild(authorTxt);
-        bookCard.appendChild(pagesTxt);
-        bookCard.appendChild(readTxt);
-
-
-        //adds bookCard to container
-        bookContainer.appendChild(bookCard);
 
         }
 

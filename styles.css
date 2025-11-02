@@ -1,3 +1,16 @@
 body{
     background-color:antiquewhite
 }
+
+#bookContainer{
+    border: 1px solid black;
+    background: white;
+    display:flex;
+    gap:20px;
+}
+
+.bookCard{
+    border: 1px solid red;
+    background-color: lightblue;
+
+}
