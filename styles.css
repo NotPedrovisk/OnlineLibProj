@@ -13,8 +13,9 @@ body{
 
 .bookCard{
     border: 1px solid red;
-    background-color: lightblue;
     border-radius: 3%;
+
+    background-color: lightblue;
     display: flex;
     flex-direction: column;
     padding: 2%;

@@ -11,6 +11,7 @@
 
     </head>
     <body>
+        
 
         <p>sus</p>
         <button id="newBookBtn">Add new book</button>
@@ -72,6 +73,47 @@
             </div>
 
         </div>
+
+        <dialog id="bookDialog" open="">
+            <form>
+                <fieldset>
+                    <legend>What Have You Been Reading?</legend>
+
+                    <div>
+                        <label for="bookName">Book's Name: </label>
+                        <input type="text" name="bookName" id="bookName">
+                    </div>
+                   
+                    <div>
+                        <label for="authorName">Author's Name: </label>
+                        <input type="text" name="authorName" id="authorName">
+                    </div>
+                    
+                    <div>
+                        <label for="pageNumber">Number Of Pages: </label>
+                        <input type="number" name="pageNumber" id="pageNumber">
+                    </div>
+                    
+
+                    <div>
+                        <label>Have you read it: </label>
+                        <input type="radio" name="hasRead" id="hasRead" value="True">
+                        <label for="hasRead">Yes</label>
+                        <input type="radio" name="hasNotRead" id="hasNotRead" value="False">
+                        <label for="hasNotRead">No</label>
+                    </div>
+                </fieldset>
+
+                <button value="cancel" formmethod="dialog">Cancel</button>
+                <button id="confirmBtn" value="default">Add Book!</button>
+
+
+            </form>
+
+
+
+
+        </dialog>
 
     </body>
 
