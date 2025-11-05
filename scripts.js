@@ -100,12 +100,16 @@ const bookName = document.getElementById("bookName");
 const authorName = document.getElementById("authorName");
 const pageNumber = document.getElementById("pageNumber");
 
-const selectedRadio = document.querySelector("input[name='hasRead']:checked")
+
 
 
 //passes value of dialog input to addBookToLib as parameters
 confirmBtn.addEventListener("click", (event) =>{
+    
     event.preventDefault();//dont need to submit form, only get info
+
+    //need to define selectedRadio inside function or else would always select default radio button
+    const selectedRadio = document.querySelector("input[name='hasRead']:checked")
     addBookToLib(bookName.value, authorName.value, pageNumber.value, selectedRadio.value);
     bookDialog.close();
 })
