@@ -25,26 +25,17 @@ function Book(name, author, pages, hasRead){
 
 
 
-function addBookToLib(){
-    let newName = prompt("whats the book name?");
-    let newAuthor = prompt("who's the author?");
-    let newPages = prompt("how many pages?");
-    let newRead = prompt("have you read it?");
-
-
+function addBookToLib(newName, newAuthor, newPages, newRead){
     let newBook = new Book(newName, newAuthor, newPages, newRead)
 
     
-    
-
     myLibrary.push(newBook);
     console.log(myLibrary);
     displayBooks()
 
 };
 
-const bookButton = document.getElementById("newBookBtn");
-bookButton.addEventListener("click", addBookToLib);
+
 
 //used to add each book when myLib array is looped
 const bookContainer = document.getElementById("bookContainer");
@@ -93,3 +84,30 @@ function displayBooks(){
         
     
     }
+
+
+//button used to display modal;
+const bookButton = document.getElementById("newBookBtn");
+ bookButton.addEventListener("click", () =>{
+      bookDialog.showModal()}
+);
+
+//modal inputs, used to get their value
+const bookDialog = document.getElementById("bookDialog");
+const confirmBtn = document.getElementById("confirmBtn");
+
+const bookName = document.getElementById("bookName");
+const authorName = document.getElementById("authorName");
+const pageNumber = document.getElementById("pageNumber");
+
+const selectedRadio = document.querySelector("input[name='hasRead']:checked")
+
+
+//passes value of dialog input to addBookToLib as parameters
+confirmBtn.addEventListener("click", (event) =>{
+    event.preventDefault();//dont need to submit form, only get info
+    addBookToLib(bookName.value, authorName.value, pageNumber.value, selectedRadio.value);
+    bookDialog.close();
+})
+
+

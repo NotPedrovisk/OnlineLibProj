@@ -74,7 +74,7 @@
 
         </div>
 
-        <dialog id="bookDialog" open="">
+        <dialog id="bookDialog" closedby="any">
             <form>
                 <fieldset>
                     <legend>What Have You Been Reading?</legend>
@@ -97,17 +97,15 @@
 
                     <div>
                         <label>Have you read it: </label>
-                        <input type="radio" name="hasRead" id="hasRead" value="True">
-                        <label for="hasRead">Yes</label>
-                        <input type="radio" name="hasNotRead" id="hasNotRead" value="False">
-                        <label for="hasNotRead">No</label>
+                        <input type="radio" name="hasRead" id="option1" value="Yes" checked>
+                        <label for="option1">Yes</label>
+                        <input type="radio" name="hasRead" id="option2" value="No">
+                        <label for="option2">No</label>
                     </div>
                 </fieldset>
 
-                <button value="cancel" formmethod="dialog">Cancel</button>
                 <button id="confirmBtn" value="default">Add Book!</button>
-
-
+                <button value="cancel" formmethod="dialog">Cancel</button>
             </form>
 
 
