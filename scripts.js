@@ -86,9 +86,10 @@ function displayBooks(){
             bookCard.appendChild(readTxt);
 
 
-
+            //button for deleting card
             const deleteBtn = document.createElement("button");
             deleteBtn.setAttribute("id", "deleteBtn");
+            deleteBtn.setAttribute("title", "Delete Book")
             deleteBtn.textContent = "X";
             deleteBtn.addEventListener("click",function(){
                 removeBook(book.UUid);

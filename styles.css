@@ -23,6 +23,20 @@ body{
     
 }
 
+#deleteBtn{
+    background-color: rgba(255, 0, 0, .5);
+    color: white;
+    border: 1px solid white;
+    width: 15%;
+    padding: 3px;
+    border-radius: 25%;
+    
+}
+
+#deleteBtn:hover{
+    background-color: rgba(255, 0, 0, .8);
+    
+}
 
 /* Modal Dialog */
 dialog::backdrop{
