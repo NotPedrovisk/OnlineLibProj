@@ -19,6 +19,18 @@ function Book(name, author, pages, hasRead){
 
 };
 
+//used when updating book reading status
+Book.prototype.readCheck = function(check){
+    let bookToCheck = document.getElementById(this.UUid);
+    console.log(bookToCheck);
+    if(check == "Yes"){
+        this.hasRead = "Yes";
+    }
+    else{
+        this.hasRead = "No"
+    };
+}
+
 
 
 
@@ -26,8 +38,10 @@ function Book(name, author, pages, hasRead){
 
 
 function addBookToLib(newName, newAuthor, newPages, newRead){
-    let newBook = new Book(newName, newAuthor, newPages, newRead)
-
+    let newBook = new Book(newName, newAuthor, newPages, newRead);
+    
+    Object.setPrototypeOf(Book, newBook);
+    console.log(newBook.__proto__);
     
     myLibrary.push(newBook);
     console.log(myLibrary);
@@ -89,13 +103,29 @@ function displayBooks(){
             //button for deleting card
             const deleteBtn = document.createElement("button");
             deleteBtn.setAttribute("id", "deleteBtn");
-            deleteBtn.setAttribute("title", "Delete Book")
+            deleteBtn.setAttribute("title", "Delete Book");
             deleteBtn.textContent = "X";
             deleteBtn.addEventListener("click",function(){
                 removeBook(book.UUid);
-            } )
+            } );
 
             bookCard.appendChild(deleteBtn);
+
+
+            //checkbox for read checking
+            const readCheckbox = document.createElement("input");
+            readCheckbox.type = "checkbox";
+            readCheckbox.setAttribute("id", "readBox");
+            readCheckbox.addEventListener("click", function(){
+                if(readCheckbox.checked){
+                    console.log("checked");
+                }
+                else{
+                    console.log("uncheckd")
+                }
+            })
+
+            bookCard.appendChild(readCheckbox);
 
 
             //adds bookCard to container
