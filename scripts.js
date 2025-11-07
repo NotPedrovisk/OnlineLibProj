@@ -21,14 +21,14 @@ function Book(name, author, pages, hasRead){
 
 //used when updating book reading status
 Book.prototype.readCheck = function(check){
+    //defines which book to change
     let bookToCheck = document.getElementById(this.UUid);
-    console.log(bookToCheck);
-    if(check == "Yes"){
-        this.hasRead = "Yes";
-    }
-    else{
-        this.hasRead = "No"
-    };
+    let bookReadText = bookToCheck.querySelector(".readTxt");
+
+  //updates text and library info
+    bookReadText.textContent = "Have you read it: " + check;
+
+    this.hasRead = check;
 }
 
 
@@ -90,7 +90,8 @@ function displayBooks(){
 
             const readTxt = document.createElement("p");
             readTxt.textContent = "Have you read it: " + book.hasRead;
-
+            readTxt.classList.add("readTxt")
+            //class added to help with changing read status
             
             bookCard.setAttribute("id", book.UUid);
 
@@ -118,12 +119,20 @@ function displayBooks(){
             readCheckbox.setAttribute("id", "readBox");
             readCheckbox.addEventListener("click", function(){
                 if(readCheckbox.checked){
-                    console.log("checked");
+                    book.readCheck("Yes");
                 }
                 else{
-                    console.log("uncheckd")
+                    book.readCheck("No")
                 }
             })
+            //checks if user has already read book, to start checkbox already checked
+            if(book.hasRead == "Yes"){
+                readCheckbox.checked = true
+            }
+            else{
+                readCheckbox.checked = false
+            }
+
 
             bookCard.appendChild(readCheckbox);
 
