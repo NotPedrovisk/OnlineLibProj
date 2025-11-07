@@ -117,6 +117,7 @@ function displayBooks(){
             const readCheckbox = document.createElement("input");
             readCheckbox.type = "checkbox";
             readCheckbox.setAttribute("id", "readBox");
+            readCheckbox.setAttribute("title", "Read Book");
             readCheckbox.addEventListener("click", function(){
                 if(readCheckbox.checked){
                     book.readCheck("Yes");

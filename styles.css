@@ -1,6 +1,24 @@
 body{
-    background-color:antiquewhite
+    background-color:antiquewhite;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    font-family: Georgia, 'Times New Roman', Times, serif;
 }
+
+h1{
+    font-family:'Courier New', Courier, monospace;
+}
+
+#newBookBtn{
+    width: 200px;
+    height: 100px;
+    
+    margin: 20px;
+    
+}
+
 
 #bookContainer{
     
@@ -11,12 +29,15 @@ body{
     gap: 10px;
 }
 
+/* BOOK CARDS */
 .bookCard{
-    border: 1px solid red;
+    border: 1px solid darkgrey;
     border-radius: 3%;
-    background-color: lightblue;
-    padding: 2%;
-    padding-left: 10%;
+    background-color: whitesmoke;
+    
+    padding-bottom: 10px;
+
+    text-align: center;
 
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -27,24 +48,39 @@ body{
 #deleteBtn{
     background-color: rgba(255, 0, 0, .5);
     color: white;
-    border: 1px solid white;
-    padding: 3px;
-    border-radius: 25%;
+    font-weight: 700;
+    border:0;
+
+    width: 50px;
+
+
     grid-row:5;
-    grid-column: 1;
+    grid-column: 2;
+
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    justify-self: center;
     
 }
 
 #deleteBtn:hover{
-    background-color: rgba(255, 0, 0, .8);
+    background-color: red;
 }
 
 #readBox{
     padding: 0;
     margin:0;
     grid-row:5;
-    grid-column: 2;
+    grid-column: 1;
+    max-width: 5;
+
+    border-radius: 50%;
+    accent-color: rgba(0, 255, 0, .5);
 }
+
+
+
 
 .bookCard>p:nth-child(1){
     grid-column: 1/3;
@@ -86,4 +122,5 @@ dialog::backdrop{
     /* removes gray border */
     border:none;
 }
+
 
