@@ -123,7 +123,15 @@ dialog::backdrop{
     border:none;
 }
 
+/* used for input validation */
+input{
+    transition: background-color .4s ease-in;
+}
 
 .required{
-    background-color: red;
+    background-color: rgba(255, 0, 0, 0.37);
+}
+
+.completed{
+    background-color: rgba(0, 128, 0, 0.37);
 }

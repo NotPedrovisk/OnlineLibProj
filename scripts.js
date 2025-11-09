@@ -163,6 +163,7 @@ const bookButton = document.getElementById("newBookBtn");
 const bookDialog = document.getElementById("bookDialog");
 const modalForm = document.getElementById("modalForm");
 const confirmBtn = document.getElementById("confirmBtn");
+const cancelBtn = document.getElementById("cancelBtn");
 
 const bookName = document.getElementById("bookName");
 const authorName = document.getElementById("authorName");
@@ -185,6 +186,11 @@ confirmBtn.addEventListener("click", (event) =>{
 
     }
     
+})
+
+cancelBtn.addEventListener("click", () =>{
+    bookDialog.close();
+    modalForm.reset();
 })
 
 function checkInput(){
