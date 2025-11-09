@@ -176,11 +176,34 @@ confirmBtn.addEventListener("click", (event) =>{
 
     event.preventDefault();//dont need to submit form, only get info
 
-    //need to define selectedRadio inside function or else would always select default radio button
-    const selectedRadio = document.querySelector("input[name='hasRead']:checked")
-    addBookToLib(bookName.value, authorName.value, pageNumber.value, selectedRadio.value);
-    bookDialog.close();
-    modalForm.reset();
+    if (checkInput()){
+        //need to define selectedRadio inside function or else would always select default radio button
+        const selectedRadio = document.querySelector("input[name='hasRead']:checked")
+        addBookToLib(bookName.value, authorName.value, pageNumber.value, selectedRadio.value);
+        bookDialog.close();
+        modalForm.reset();
+
+    }
+    
 })
 
+function checkInput(){
+    let input_to_check = [bookName, authorName, pageNumber];
 
+    for(input of input_to_check){
+        if(input.value.trim() == ""){
+            input.classList.add("required")
+            console.log(input.name + " needs to be filled")
+            return false
+        }
+        else{
+            input.classList.remove("required")
+            input.classList.add("completed")
+        }
+        
+    }
+    console.log("all Inputs Filled")
+    return true
+
+
+}
